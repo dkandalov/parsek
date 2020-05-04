@@ -15,14 +15,10 @@
  *****************************************************************************/
 package org.jparsec.examples.sql.parser;
 
-import static java.util.Arrays.asList;
-
-import org.jparsec.Parser;
-import org.jparsec.Parsers;
-import org.jparsec.Scanners;
-import org.jparsec.Terminals;
-import org.jparsec.examples.sql.ast.QualifiedName;
 import org.jparsec.*;
+import org.jparsec.examples.sql.ast.QualifiedName;
+
+import static java.util.Arrays.asList;
 
 /**
  * Lexers and terminal level parsers for SQL.
@@ -43,7 +39,7 @@ final class TerminalParser {
   };
   
   private static final Terminals TERMS =
-      Terminals.operators(OPERATORS).words(Scanners.IDENTIFIER).caseInsensitiveKeywords(asList(KEYWORDS)).build();
+      Terminals.Companion.operators(OPERATORS).words(Scanners.IDENTIFIER).caseInsensitiveKeywords(asList(KEYWORDS)).build();
   
   private static final Parser<?> TOKENIZER = Parsers.or(
       Terminals.DecimalLiteral.TOKENIZER, Terminals.StringLiteral.SINGLE_QUOTE_TOKENIZER,

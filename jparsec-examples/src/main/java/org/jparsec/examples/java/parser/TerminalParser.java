@@ -15,15 +15,11 @@
  *****************************************************************************/
 package org.jparsec.examples.java.parser;
 
+import org.jparsec.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.jparsec.Parser;
-import org.jparsec.Parsers;
-import org.jparsec.Scanners;
-import org.jparsec.Terminals;
-import org.jparsec.Token;
 
 /**
  * Parser for terminals.
@@ -32,7 +28,7 @@ import org.jparsec.Token;
  */
 public final class TerminalParser {
   
-  private static final Terminals TERMS = Terminals      
+  private static final Terminals TERMS = Terminals.Companion
        // <<, >> and >>> are handled by {@link #adjacent(String)},
        // to avoid ambiguity with generics syntax.
       .operators("+", "-", "*", "/", "%", "&", "|", "~", "^",

@@ -15,6 +15,7 @@
  *****************************************************************************/
 package org.jparsec.examples.java.parser;
 
+import kotlin.Unit;
 import org.jparsec.Parser;
 import org.jparsec.Parsers;
 import org.jparsec.Scanners;
@@ -36,7 +37,7 @@ public final class JavaLexer {
       .toScanner("identifier")
       .source();
   
-  static final Parser<Void> DECIMAL_POINT_SCANNER =
+  static final Parser<Unit> DECIMAL_POINT_SCANNER =
       Patterns.INTEGER.optional().next(Patterns.FRACTION).toScanner("decimal point number");
   
   static final Parser<DecimalPointNumberLiteral> DECIMAL_POINT_NUMBER = Parsers.sequence(
